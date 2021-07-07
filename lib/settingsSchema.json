@@ -1,0 +1,127 @@
+{
+  "type": "object",
+  "properties": {
+    "debug": {
+      "type": "boolean"
+    },
+    "dateFormat": {
+      "type": "string"
+    },
+    "logDirectory": {
+      "type": "string"
+    },
+    "zipFolders": {
+      "type": "boolean"
+    },
+    "months": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "type": "string"
+      }
+    },
+    "levels": {
+      "type": "object",
+      "patternProperties": {
+        "...": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string"
+            },
+            "writeToLogFile": {
+              "type": "boolean"
+            },
+            "sendMail": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "targets": {
+      "type": "object",
+      "patternProperties": {
+        "...": {
+          "type": "object",
+          "properties": {
+            "format": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "mail": {
+      "type": "object",
+      "properties": {
+        "template": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subject": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "to": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "minItems": 0,
+          "items": {
+            "type": "string"
+          }
+        },
+        "from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "host": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "port": {
+          "type": "number",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "secure": {
+          "type": "boolean"
+        },
+        "pool": {
+          "type": "boolean"
+        },
+        "auth": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "user": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "password": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

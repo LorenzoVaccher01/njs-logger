@@ -1,0 +1,64 @@
+{
+  "debug": false,
+  "dateFormat": "&b[&rGG/MM/YYYY hh:mm:ss&b]&r",
+  "logDirectory": "logs/",
+  "zipFolders": true,
+  "months": [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ],
+  "levels": {
+    "log": {
+      "format": "&b[&aINFO&b]&r",
+      "writeToLogFile": true,
+      "sendMail": false
+    },
+    "warn": {
+      "format": "&b[&eWARN&b]&r",
+      "writeToLogFile": true,
+      "sendMail": false
+    },
+    "error": {
+      "format": "&b[&cERROR&b]&r",
+      "writeToLogFile": true,
+      "sendMail": false
+    },
+    "debug": {
+      "format": "&b[&5DEBUG&b]&r",
+      "writeToLogFile": false,
+      "sendMail": false
+    }
+  },
+  "targets": {
+    "database": {
+      "format": "&b[&cDATABASE&b]&r"
+    },
+    "website": {
+      "format": "&b[&eWEBSITE&b]&r"
+    },
+    "email": {
+      "format": "&b[&5EMAIL&b]&r"
+    }
+  },
+  "mail": {
+    "template": "./views/defaultEmail.ejs",
+    "subject": null,
+    "to": [],
+    "from": null,
+    "host": null,
+    "port": 587,
+    "secure": false,
+    "pool": false,
+    "auth": null
+  }
+}
