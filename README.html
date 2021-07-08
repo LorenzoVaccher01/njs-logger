@@ -1,0 +1,462 @@
+<!DOCTYPE html><html><head>
+      <title>README</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/lorenzo/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.22/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="njs-logger">njs-logger</h1>
+
+<p><a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/github/license/LorenzoVaccher01/njs-logger" alt="License"></a><br>
+<a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/github/issues/LorenzoVaccher01/njs-logger" alt="Issues"></a><br>
+<a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/github/forks/LorenzoVaccher01/njs-logger" alt="Forks"></a><br>
+<a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/github/stars/LorenzoVaccher01/njs-logger" alt="Stars"></a><br>
+<a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/github/languages/code-size/LorenzoVaccher01/njs-logger" alt="asd"></a><br>
+<a href="https://www.npmjs.com/package/njs-logger"><img src="https://img.shields.io/tokei/lines/github/LorenzoVaccher01/njs-logger" alt="asd"></a></p>
+<p><a href="https://www.npmjs.com/package/njs-logger"><img src="https://nodei.co/npm/njs-logger.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="NPM"></a></p>
+<h2 class="mume-header" id="overview">Overview</h2>
+
+<p>njs-logger &#xE8; una libreria per Node.js incentrata sulla gestione e la manipolazione dei logs. Questa permette, attraverso poche righe di configurazione e di utilizzo, di salvare su determinati file e di mostrare a video eventuali errori o altre informazioni utili.</p>
+<p>TODO: inserire immagine della console (molto colorata)</p>
+<h3 class="mume-header" id="features">Features</h3>
+
+<ul>
+<li><strong>Flessibile al 100%</strong></li>
+<li>Possibilit&#xE0; di <strong>zippare le cartelle</strong> dei log per risparmiare spazio sul disco</li>
+<li><strong>Invio di email</strong> nel caso in cui si dovessero scatenare determinati eventi [guarda le impostazioni]</li>
+<li><strong>Totale gestione dei log e delle cartelle</strong></li>
+<li>Possibilit&#xE0; di visualizzare <strong>messaggi con</strong> determinati <strong>colori</strong></li>
+</ul>
+<h2 class="mume-header" id="usage">Usage</h2>
+
+<h3 class="mume-header" id="installation">Installation</h3>
+
+<p>It is possible to <strong>install</strong> this library with <a href="https://www.npmjs.com/package/njs-logger">npm</a>:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> nsj-logger
+</pre><p>To <strong>import</strong> the library in your project:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">const</span> logger <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;njs-logger&apos;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="colors">Colors</h3>
+
+<p>&#xE8; possibile personalizzare la propria console attraverso i seguenti colori:</p>
+<ul>
+<li><code>&amp;0</code>: black</li>
+<li><code>&amp;c</code>: red</li>
+<li><code>&amp;a</code>: green</li>
+<li><code>&amp;e</code>: yellow</li>
+<li><code>&amp;9</code>: blue</li>
+<li><code>&amp;5</code>: magenta</li>
+<li><code>&amp;b</code>: cyan</li>
+<li><code>&amp;f</code>: white</li>
+<li><code>&amp;r</code>: color reset</li>
+<li><code>&amp;k</code>: hides the characters</li>
+<li><code>&amp;x</code>: intermittent character</li>
+<li><code>&amp;z</code>: blink</li>
+<li><code>&amp;n</code>: underline</li>
+</ul>
+<p>Per utilizzare questi colori &#xE8; sufficiente inserire il codice illustrato nella lista sopra stante all&apos;interno di una String di una funzione di log (ex: error, debug, log, ecc.).<br>
+<strong>Esempio</strong>:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">logger<span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;&amp;aThis &amp;fis a &amp;ctest!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><img src="./.img/testColor.png" title="Colors">
+<h3 class="mume-header" id="levels">Levels</h3>
+
+<p>I livelli indicano le funzioni richiamabili attravero l&apos;oggetto creato, come mostrato in <a href="#usage">questa</a> sezione, per la generazione dei log. In particolar modo ogni livello ha determinati attributi, come illustrato nella sezione delle impostazioni [<a href="#settings">clicca qui</a>], che permettono di gestire a pieno le funzionalit&#xE0; offerte.</p>
+<p>In sostanza, quindi, ad ogni livello &#xE8; associata una funzione richiamabile.<br>
+Per esempio, nelle impostazioni di default &#xE8; presente un livello <code>debug</code>, infatti &#xE8; possibile eseguire la seguente funzione:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">logger<span class="token punctuation">.</span><span class="token method function property-access">debug</span><span class="token punctuation">(</span><span class="token string">&quot;This is a test!&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</pre><h3 class="mume-header" id="targets">Targets</h3>
+
+<p>TODO: da fare<br>
+TODO: mettere link alla documentazione</p>
+<h3 class="mume-header" id="variables">Variables</h3>
+
+<p>La libreria implementa un sistema di gestione della variabili inserite all&apos;interno delle stringhe passate come input alla funzione di log.<br>
+<strong>Esempio</strong>:</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">logger<span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&quot;The user with id: %user_id% is logged in.&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>user_id<span class="token operator">:</span> <span class="token number">69</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+logger<span class="token punctuation">.</span><span class="token method function property-access">warn</span><span class="token punctuation">(</span><span class="token string">&quot;%database% -&gt; %table%&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;database&quot;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>database<span class="token operator">:</span> <span class="token string">&quot;portfolio&quot;</span><span class="token punctuation">,</span> table<span class="token operator">:</span> <span class="token string">&quot;staff&quot;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Console: &quot;[07/07/2021 03:47:39] [INFO] The user with id: 69 is logged in.&quot;</span>
+<span class="token comment">//          &quot;[07/07/2021 03:47:39] [WARN] [DATABASE] portfolio -&gt; staff&quot;</span>
+</pre><h2 class="mume-header" id="settings">Settings</h2>
+
+<p>Quando la libreria viene importata &#xE8; possibile specificare alcune impostazione in base alle proprie esigenze:</p>
+<p>&#xE8; possibile trovare lo JSON schema dell&apos;oggetto a questo <a href="%5Bhttps://asd%5D(https://github.com/LorenzoVaccher01/njs-logger/blob/main/lib/settingsSchema.json)">documento</a>.</p>
+<h4 class="mume-header" id="debug">debug</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>boolean</code><br>
+<strong>Default value</strong>: <code>false</code></p>
+</blockquote>
+<p>Impostazione utilizzata per il debug della libreria. Se impostato a <code>true</code> verranno visualizzati messaggio utili allo sviluppo del progetto.</p>
+<h4 class="mume-header" id="dateformat">dateFormat</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>String</code><br>
+<strong>Default value</strong>: <code>&amp;b[&amp;rGG/MM/YYYY hh:mm:ss&amp;b]&amp;r</code></p>
+</blockquote>
+<p>Formato della data da visualizzare nella console e nei file di Log. &#xE8; possibile creare una combinazione per la realizzazione di un formato custom attraverso i seguenti parametri:</p>
+<ul>
+<li><code>ss</code>: secondi</li>
+<li><code>mm</code>: minuti</li>
+<li><code>hh</code>: ore</li>
+<li><code>GG</code>: giorno</li>
+<li><code>MM</code>: numero del mese (ex: 1 per gennaio)</li>
+<li><code>YYYY</code>: anno in formato con quattro cifre (ex: 2021)</li>
+<li><code>YY</code>: anno in formato con due crifre (ex: 21)</li>
+</ul>
+<p>I <strong>colori</strong> seguono lo standard illustrato in <a href="#colors">questa sezione</a>.</p>
+<h4 class="mume-header" id="logdirectory">logDirectory</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>String</code><br>
+<strong>Default value</strong>: <code>logs/</code></p>
+</blockquote>
+<p>Indica dove dovranno essere salvati i log.</p>
+<h4 class="mume-header" id="zipfolders">zipFolders</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>boolean</code><br>
+<strong>Default value</strong>: <code>true</code></p>
+</blockquote>
+<p>Specifica se, all&apos;inizio di ogni mese, bisogna zippare le cartelle dei mesi precedenti per salvare spazio sul disco.</p>
+<h4 class="mume-header" id="moths">moths</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>array</code><br>
+<strong>Default value</strong>: <code>[&quot;January&quot;, &quot;February&quot;, &quot;March&quot;, &quot;April&quot;, &quot;May&quot;, &quot;June&quot;, &quot;July&quot;, &quot;August&quot;, &quot;September&quot;, &quot;October&quot;, &quot;November&quot;, &quot;December&quot;]</code></p>
+</blockquote>
+<p>Array che indica i 12 mesi dell&apos;anno, utilizzati per salvare al loro interno i file di log divisi per i giorni del mese.</p>
+<h4 class="mume-header" id="levels-1">levels</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>object</code><br>
+<strong>Default value</strong>: <code>{log: {...}, warn: {...}, error: {...}, debug: {...}}</code></p>
+</blockquote>
+<p>Questo oggetto specifica i livelli dei log, e il nome associato all&apos;oggetto sar&#xE0; il nome della funzione utilizzata per invocare il livello stesso.<br>
+Ogni livello deve seguire il seguente JSON Schema:</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token property">&quot;...&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+  <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;object&quot;</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;properties&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;format&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;string&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;writeToLogFile&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;boolean&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;sendMail&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;boolean&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>In altre parole, ogni oggetto livello deve avere tre attributi:</p>
+<ol>
+<li><code>format</code>: stringa che identifica il livello e che verr&#xE0; mostrata nel file di log e nella console (ex: nel livello log il format &#xE8; il seguente: <code>[&amp;b[&amp;aINFO&amp;b]&amp;r]</code>).</li>
+<li><code>writeToLogFile</code>: boolean che indica se la stringa stampata a video dovr&#xE0; anche essere scritta nel file dei log.</li>
+<li><code>sendMail</code>: boolean che indica se bisogna inviare una email quando il log corrente sar&#xE0; invocato. Se impostato a <code>true</code>, &#xE8; obbligatorio settare le impostazioni relative alla mail (vedi <a href="#mail">questa sezione</a>).</li>
+</ol>
+<h4 class="mume-header" id="targets-1">targets</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>object</code><br>
+<strong>Default value</strong>: <code>{database: {&quot;format&quot;: &quot;&amp;b[&amp;cDATABASE&amp;b]&amp;r&quot;}, website: {&quot;format&quot;: &quot;&amp;b[&amp;eWEBSITE&amp;b]&amp;r&quot;}, email: {&quot;format&quot;: &quot;&amp;b[&amp;5EMAIL&amp;b]&amp;r&quot;}}</code></p>
+</blockquote>
+<p>I targets vengono utilizzati per indicare, come dice il nome stesso, il target del log. In questo modo sar&#xE0; pi&#xF9; semplice identificare un determinato servizio, per esempio, come l&apos;email, il sito web o un eventuale errore del database.</p>
+<h4 class="mume-header" id="mail">mail</h4>
+
+<blockquote>
+<p><strong>Data type</strong>: <code>object</code><br>
+<strong>Default value</strong>: <code>{ &quot;template&quot;: &quot;./views/defaultEmail.ejs&quot;, &quot;subject&quot;: null, &quot;to&quot;: [], &quot;from&quot;: null, &quot;host&quot;: null, &quot;port&quot;: 587, &quot;secure&quot;: false, &quot;pool&quot;: false, &quot;auth&quot;: null}</code></p>
+</blockquote>
+<p>Oggetto che indica le impostazioni per l&apos;invio di email qualora fosse stato specificato in un determinato <a href="#levels">level</a>.<br>
+In particolare:</p>
+<ol>
+<li><code>template</code> [<code>String</code>]: indica il file con estensione <code>ejs</code> (<a href="https://ejs.co/#docs">vedi documentazione</a>), utilizzato per definire il template dell&apos;email. I parametri passati al file ejs sono i seguenti:
+<ul>
+<li><code>message</code>: messaggio specificato</li>
+<li><code>from</code>: indica la stringa dell&apos;attributo <code>mail.from</code></li>
+<li><code>date</code>: data corrente</li>
+</ul>
+</li>
+<li><code>subject</code> [<code>String</code>]: oggetto dell&apos;email</li>
+<li><code>to</code> [<code>array</code>]: array di String, utilizzato per specificare le email a cui inviare la notifica</li>
+<li><code>from</code> [<code>String</code>]: <a href="https://nodemailer.com/message/addresses/">See the documentation</a></li>
+<li><code>host</code> [<code>String</code>]: IPV4 o DNS del server SMTP</li>
+<li><code>port</code> [<code>number</code>]: porta del server SMTP</li>
+<li><code>secure</code> [<code>boolean</code>]: If true the connection will use TLS when connecting to server. If false (the default) then TLS is used if server supports the STARTTLS extension. In most cases set this value to true if you are connecting to port 465. For port 587 or 25 keep it false.</li>
+<li><code>pool</code> [<code>boolean</code>]: set to true to use pooled connections (defaults to false) instead of creating a new connection for every email.</li>
+<li><code>auth</code> [<code>object</code>]: oggetto che indica le credenziali di accesso al server SMTP. In questo oggetto dovranno essere specificati due attributi:
+<ul>
+<li><code>user</code> [<code>String</code>]: utente per accedere al server SMTP (tipicamente l&apos;email utilizzata per inviare la password).</li>
+<li><code>password</code> [<code>String</code>]: password per accedere al server SMTP (tipicamente la password per accedere all&apos;email).</li>
+</ul>
+</li>
+</ol>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

@@ -9,7 +9,7 @@ const logger = require('../index')({
     log: {
       format: '&b[&aINFO&b]&r', writeToLogFile: true, sendMail: false
     },
-    error: { format: '&b[&cERROR&b]&r', writeToLogFile: true, sendMail: true },
+    error: { format: '&b[&cERROR&b]&r', writeToLogFile: true, sendMail: false },
   },
   mail: {
     from: "NodeJs Logger <info@lorenzovaccher.com>",
@@ -29,6 +29,8 @@ const logger = require('../index')({
 logger.clearConsole();
 logger.log('&bHi! &bthis is a &b%text%', 'database', { text: 'test!' });
 logger.warn('Hi! this is a warn! :(', 'website');
-logger.debug('Dubug, deug, debug, only DEBUG!');
-logger.log('&aTEST&r&aTestTest!!!!&basdasd&basdasd&bsd');
-logger.log({test: "Hi!", pippo: 0, lolo: true});
+logger.debug('&cDubug&r, &edebug&r, &adebug&r, &xonly DEBUG&r!');
+logger.log('&cW&ao&ew&r, &5i &bl&co&fv&be &r&zNode.js!');
+logger.error('This is an &nerror&r! &c:(', 'email');
+logger.log({field: "IT", name: "Lorenzo", admin: true});
+logger.log('Id: %user_id%', {user_id: 69});

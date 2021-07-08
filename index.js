@@ -8,30 +8,28 @@ const scheduler = require('./lib/modules/scheduler');
 const validate = require('jsonschema').validate;
 
 /**
- * Impostazioni di default
+ * Default Settings
  */
 const _DEFAULT_SETTINGS = require('./lib/settings.json');
 
 /**
- * JSON schema utilizzato per verificare la tipologia di 
- * dati inseriti dall'utente.
+ * JSON schema used to verify the type of data entered by the user.
  */
 const _SETTINGS_SCHEMA = require('./lib/settingsSchema.json');
 
 /**
- * Impostazioni complete. Questo oggetto viene ottenuto facendo 
- * un merge dell'oggetto delle impostazioni passato dall'utente e 
- * le impostazioni di default.
+ * The whole settings. This object is obtained through
+ * a merge of the settings object passed by the user and 
+ * the default settings.
  */
 let settings;
 
 /**
- * Funziona principale del progetto. Tale funzione ha il compito
- * di verificare la validità dei dati passati in input e inizializzare
- * il logger.
+ * Main function of the project. This function checks the validity
+ * of the input data and initializes the logger.
  * 
- * @param {Object} options impostazioni scelte dall'utente
- * @returns funzioni utilizzate per gestire la console
+ * @param {Object} options settings chosen by the user
+ * @returns functions used to manage the console
  */
 module.exports = function (options) {
 
@@ -41,10 +39,10 @@ module.exports = function (options) {
   if (options != {})
     settings = merge(_DEFAULT_SETTINGS, options);
 
-  //Verifica di eventuali errori nei dati dell'oggetto delle impostazioni
+  // Checks for any errors in the settings object data
   let jsonStatus = validate(settings, _SETTINGS_SCHEMA);
 
-  //Visualizzazione a video degli eventuali errori
+  // Displays any errors on the screen
   if (!jsonStatus.valid) {
     let errorString = "One or more values ​​of the entered settings does not conform to the default formats: \n";
 
@@ -54,15 +52,14 @@ module.exports = function (options) {
     throw new Error(errorString);
   }
 
-  // Verifica correttezza di "zipFolder" ed eventuale avvio dello scheduler
+  // Verifies the correctness of "zipFolder" and eventually starts the scheduler
   if (settings.zipFolders == true) {
 
-    //Quando viene inizializzato l'oggetto logger viene avviata subito una scansione
-    //delle cartelle per verificare se sono presenti mesi passati, in tal caso 
-    //verranno zippati per risparmiare spazio sul disco.
+    // When the logger object is initialized, a scan of the folders is started immediately
+    // to check if there are any past months, in which case they will be zipped to save space on the disk.
     require('./lib/modules/zipper').folderZipper(settings.logDirectory, settings.months);
 
-    //Avvio dello schedulatore per zippare le cartelle ogni inizio del mese
+    // Starts the scheduler to zip the folders every beginning of the month
     scheduler.runFolderZipper(settings.logDirectory, settings.months);
   }
 
@@ -74,7 +71,7 @@ module.exports = function (options) {
  * 
  * @param {Object} obj1 
  * @param {Object} obj2 
- * @returns unione dei due oggetti passati come parametri
+ * @returns merge of the two objects passed as parameters
  */
 function merge(obj1, obj2) {
   for (var p in obj2)
