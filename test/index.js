@@ -29,8 +29,9 @@ const logger = require('../index')({
 logger.clearConsole();
 logger.log('&bHi! &bthis is a &b%text%', 'database', { text: 'test!' });
 logger.warn('Hi! this is a warn! :(', 'website');
-logger.debug('&cDubug&r, &edebug&r, &adebug&r, &xonly DEBUG&r!');
 logger.log('&cW&ao&ew&r, &5i &bl&co&fv&be &r&zNode.js!');
 logger.error('This is an &nerror&r! &c:(', 'email');
 logger.log({field: "IT", name: "Lorenzo", admin: true});
-logger.log('Id: %user_id%', {user_id: 69});
+logger.log(logger.COLOR.RED + "You can also invoke colors with \"logger.COLOR.{color}\"");
+
+logger.log(logger.COLOR.RED + "ciao " + logger.COLOR.BRIGHT_RED + "ciao");
