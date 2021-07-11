@@ -34,14 +34,18 @@ logger.error('This is an &underror&res! &r:(', 'email');
 logger.log({field: "IT", name: "Lorenzo", admin: true});
 logger.debug(["wow!", {user: "n91jasd", role: "user"}, true, 10.04]);
 logger.log(logger.COLOR.RED + "You can also invoke colors with \"logger.COLOR.{color}\"");
+logger.log(logger.COLOR.RED + "Hi &b-mhi &revtest");
 
-logger.log(logger.COLOR.RED + "ciao &b-mciao &revtest");
-
-let t0 = console.time('test');
+let startTime = logger.startTime();
 
 setTimeout(() => {
-  let t1 = console.timeEnd('test');
-  console.log("Call to doSomething took " + (t1 - t0) + " milliseconds.")
-}, 1500);
+  let endTime = logger.endTime(startTime);
+  let endTime1 = logger.endTime(startTime, 4);
+  let endTime2 = logger.endTime(startTime, 'm');
+  let endTime3 = logger.endTime(startTime, 'h', 1);
 
-//https://codezup.com/measure-execution-time-javascript-node-js/
+  console.log("Execution time: " + endTime + " milliseconds");
+  console.log("Execution time: " + endTime1 + " milliseconds");
+  console.log("Execution time: " + endTime2 + " minutes");
+  console.log("Execution time: " + endTime3 + " hours");
+}, 150)
