@@ -67,8 +67,8 @@ logger.log("&gThis &wis a &rtest!");
 
 It is also possible to invoke a certain color like this:
 ```js
-logger.log(logger.COLOR_RED + "Red, only red!");
-logger.log(logger.COLOR_BRIGHT_CYAN + "I love cyan!");
+logger.log(logger.COLOR.RED + "Red, only red!");
+logger.log(logger.COLOR.BRIGHT_CYAN + "I love cyan!");
 ```
 
 ### Invocable functions
