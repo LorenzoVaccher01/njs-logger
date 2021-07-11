@@ -21,7 +21,8 @@ njs-logger is a **library for Node.js** focused on the **management and manipula
 - It is possible to **zip log folders** to save disk space.
 - It sends **emails** in case certain events arises.
 - **Total management of logs and folders**.
-- It is possible to display **messages** with certain **colors**.
+- It is possible to display messages with certain **colors**.
+- Possibility of **obtaining the execution time of a script**.
 
 > Do you have any suggestions? Create an issue to propose new features!
 
@@ -39,26 +40,72 @@ const logger = require('njs-logger')();
 ```
 ### Colors
 You can customize your console through the following colors:
-- `&0`: black
-- `&c`: red
-- `&a`: green
-- `&e`: yellow
-- `&9`: blue
-- `&5`: magenta
-- `&b`: cyan
-- `&f`: white
-- `&r`: color reset
-- `&k`: hides the characters
-- `&x`: intermittent character
-- `&z`: blink
-- `&n`: underline
+| Color  | Normal  | Bright  |
+| :----: | :-----: | :-----: |
+| black  |  `&b`   | `&b-b`  |
+| red    |  `&r`   | `&b-r`  |
+| green  |  `&g`   | `&b-g`  |
+| yellow |  `&y`   | `&b-y`  |
+| blue   |  `&bl`  | `&b-bl` |
+| magenta|  `&m`   | `&b-m`  |
+| cyan   |  `&c`   | `&b-c`  |
+| white  |  `&w`   | `&b-w`  |
+
+**Other functions**:
+- `&res`: reset color
+- `&hid`: hides the characters
+- `&und`: underline
+- `&bli`: blink
+- `&rev`: inversion of colors
 
 To use these colors it is sufficient to insert the code shown in the above list inside a String of a log function (ex: error, debug, log, ecc.).
 **Example**:
 ```js
-logger.log("&aThis &fis a &ctest!");
+logger.log("&gThis &wis a &rtest!");
 ```
 <img src="./.img/testColor.png" title="Colors">
+
+It is also possible to invoke a certain color like this:
+```js
+logger.log(logger.COLOR_RED + "Red, only red!");
+logger.log(logger.COLOR_BRIGHT_CYAN + "I love cyan!");
+```
+
+### Invocable functions
+#### `clearConsole()`
+Function used to clean the console of any writing.
+```js
+logger.clearConsole();
+```
+#### `startTime()` and `endTime()`
+Functions used to get the execution time of a script. In particular, `startTime()` returns the current time that must be passed to `endTime()`, a function invoked when time has to be stopped, which returns the execution time.
+
+The **`endTime()`** function takes three values ​​as **input**:
+- `startTime`: is the value obtained from the `startTime()` function which is nothing other than `Date.now())`
+- `unit` [**default value**: `ms`]: that is the unit of time to be obtained:
+  - `ns`: nanoseconds
+  - `ms`: milliseconds
+  - `s`: seconds
+  - `m`: minutes
+  - `h`: hours
+- `decimals` [**default value**: `3`]: which indicates the number of significant digits after the comma that the function must return
+
+**Examples**:
+```js
+let startTime = logger.startTime();
+
+setTimeout(() => {
+  let endTime = logger.endTime(startTime);
+  let endTime1 = logger.endTime(startTime, 4);
+  let endTime2 = logger.endTime(startTime, 'm');
+  let endTime3 = logger.endTime(startTime, 'h', 1);
+
+  console.log("Execution time: " + endTime + " milliseconds"); //Execution time: 151.000 milliseconds
+  console.log("Execution time: " + endTime1 + " milliseconds"); //Execution time: 151.0000 milliseconds
+  console.log("Execution time: " + endTime2 + " minutes"); //Execution time: 0.003 minutes
+  console.log("Execution time: " + endTime3 + " hours"); //Execution time: 0.0 hours
+}, 150);
+```
 
 ### Level
 The levels indicate the type of log that can be recalled through the created object, as shown in [this](#usage) section. Specifically, each level has certain attributes, as illustrated in the settings section [[click here](#settings)], which allows you to fully manage the features offered.
@@ -97,13 +144,15 @@ You can find the json schema of the object in this [document]([https://asd](http
 
 #### debug
 >**Data type**: `boolean`
-**Default value**: `false`
+
+>**Default value**: `false`
 
 This settings is used for the library debugging. If set to `true`, useful messages will be displayed for the development of the project.
 
 #### dateFormat
 >**Data type**: `String`
-**Default value**: `&b[&rGG/MM/YYYY hh:mm:ss&b]&r`
+
+>**Default value**: `&c[&resGG/MM/YYYY hh:mm:ss&c]&res`
 
 This is the format of the date that is displayed in the console and log files. it is possible to make a combination for the creation of a custom format through the following parameters:
 - `ss`: seconds
@@ -118,25 +167,29 @@ It is possible to implement colors in the string, which follow the standard illu
 
 #### logDirectory
 >**Data type**: `String`
-**Default value**: `logs/`
+
+>**Default value**: `logs/`
 
 It indicates where the logs should be saved. The subfolders of the months will be created in the set folder, as indicated in [months](#months).
 
 #### zipFolders
 >**Data type**: `boolean`
-**Default value**: `true`
+
+>**Default value**: `true`
 
 On the first day of each month, it specifies whether folders from previous months should be zipped to save disk space.
 
 #### months
 >**Data type**: `array`
-**Default value**: `["January", "February", ..., "December"]`
+
+>**Default value**: `["January", "February", ..., "December"]`
 
 This array indicates the 12 months of the year, used to save log files divided by individual days of the month.
 
 #### levels
 >**Data type**: `object`
-**Default value**: `{log: {...}, warn: {...}, error: {...}, debug: {...}}`
+
+>**Default value**: `{log: {...}, warn: {...}, error: {...}, debug: {...}}`
 
 This object specifies the levels of the log functions. The name associated with the object will be the name of the function used to invoke the function.
 Each level must follow the following JSON Schema:
@@ -158,14 +211,14 @@ Each level must follow the following JSON Schema:
 ```
 
 In other words, each level must have three attributes:
-1. `format`: a string that identifies the level which is shown in the log file and console (ex: in the log level the format is the following: `[&b[&aINFO&b]&r]`).
+1. `format`: a string that identifies the level which is shown in the log file and console (ex: in the log level the format is the following: `&c[&gINFO&c]&res`).
 2. `writeToLogFile`: a boolean which indicates whether the string printed on the screen must be written to the log file as well.
 3. `sendMail`: a boolean which indicates whether an email should be sent when the current log is invoked. If set to `true`, it is mandatory to set the mail of the settings (see [this section](#mail)).
 
 **Example**:
 ```json
 "log": {
-  "format": "&b[&aINFO&b]&r",
+  "format": "&c[&gINFO&c]&res",
   "writeToLogFile": true,
   "sendMail": false
 }
@@ -173,13 +226,15 @@ In other words, each level must have three attributes:
 
 #### targets
 >**Data type**: `object`
-**Default value**: `{database: {"format": "&b[&cDATABASE&b]&r"}, website: {"format": "&b[&eWEBSITE&b]&r"}, email: {"format": "&b[&5EMAIL&b]&r"}}`
+
+>**Default value**: `{database: {"format": "&c[&rDATABASE&c]&res"}, website: {"format": "&c[&yWEBSITE&c]&res"}, email: {"format": "&c[&mEMAIL&c]&res"}}`
 
 The targets are used to indicate what the log refers to. This will make it easier to identify, for example, a certain service such as email, website or a possible database error.
 
 #### mail
 >**Data type**: `object`
-**Default value**: `{    "template": "./views/defaultEmail.ejs", "subject": null, "to": [], "from": null, "host": null, "port": 587, "secure": false, "pool": false, "auth": null}`
+
+>**Default value**: `{    "template": "./views/defaultEmail.ejs", "subject": null, "to": [], "from": null, "host": null, "port": 587, "secure": false, "pool": false, "auth": null}`
 
 This object indicates the settings to send emails if it was specified in a certain [level](#levels) with the `sendMail` setting.
 
@@ -198,3 +253,6 @@ In particular:
 9. `auth` [`object`]: object indicates the login credentials to the SMTP server. Two attributes must be specified in this object:
       - `user` [`String`]: name of the user to access to the SMTP server (typically the email used to send the password).
       - `password` [`String`]: password to access to the SMTP server (typically the password to access the email).
+
+**Default template**:
+<img src="./.img/email.png" title="Email">

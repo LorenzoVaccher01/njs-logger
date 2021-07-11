@@ -1,6 +1,6 @@
 {
   "debug": false,
-  "dateFormat": "&b[&rGG/MM/YYYY hh:mm:ss&b]&r",
+  "dateFormat": "&c[&resGG/MM/YYYY hh:mm:ss&c]&res",
   "logDirectory": "logs/",
   "zipFolders": true,
   "months": [
@@ -19,35 +19,35 @@
   ],
   "levels": {
     "log": {
-      "format": "&b[&aINFO&b]&r",
+      "format": "&c[&gINFO&c]&res",
       "writeToLogFile": true,
       "sendMail": false
     },
     "warn": {
-      "format": "&b[&eWARN&b]&r",
+      "format": "&c[&yWARN&c]&res",
       "writeToLogFile": true,
       "sendMail": false
     },
     "error": {
-      "format": "&b[&cERROR&b]&r",
+      "format": "&c[&rERROR&c]&res",
       "writeToLogFile": true,
       "sendMail": false
     },
     "debug": {
-      "format": "&b[&5DEBUG&b]&r",
+      "format": "&c[&mDEBUG&c]&res",
       "writeToLogFile": false,
       "sendMail": false
     }
   },
   "targets": {
     "database": {
-      "format": "&b[&cDATABASE&b]&r"
+      "format": "&c[&rDATABASE&c]&res"
     },
     "website": {
-      "format": "&b[&eWEBSITE&b]&r"
+      "format": "&c[&yWEBSITE&c]&res"
     },
     "email": {
-      "format": "&b[&5EMAIL&b]&r"
+      "format": "&c[&mEMAIL&c]&res"
     }
   },
   "mail": {

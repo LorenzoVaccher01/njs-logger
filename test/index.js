@@ -7,9 +7,9 @@
 const logger = require('../index')({
   levels: {
     log: {
-      format: '&b[&aINFO&b]&r', writeToLogFile: true, sendMail: false
+      format: '&c[&gINFO&c]&res', writeToLogFile: true, sendMail: false
     },
-    error: { format: '&b[&cERROR&b]&r', writeToLogFile: true, sendMail: false },
+    error: { format: '&c[&rERROR&c]&res', writeToLogFile: true, sendMail: false },
   },
   mail: {
     from: "NodeJs Logger <info@lorenzovaccher.com>",
@@ -27,10 +27,25 @@ const logger = require('../index')({
 });
 
 logger.clearConsole();
-logger.log('&bHi! &bthis is a &b%text%', 'database', { text: 'test!' });
+logger.log('&cHi! this is a &m%text%', 'database', { text: 'test!' });
 logger.warn('Hi! this is a warn! :(', 'website');
-logger.debug('&cDubug&r, &edebug&r, &adebug&r, &xonly DEBUG&r!');
-logger.log('&cW&ao&ew&r, &5i &bl&co&fv&be &r&zNode.js!');
-logger.error('This is an &nerror&r! &c:(', 'email');
+logger.log('&rW&go&yw&res, &mi &cl&ro&wv&ce &res&bliNode.js!');
+logger.error('This is an &underror&res! &r:(', 'email');
 logger.log({field: "IT", name: "Lorenzo", admin: true});
-logger.log('Id: %user_id%', {user_id: 69});
+logger.debug(["wow!", {user: "n91jasd", role: "user"}, true, 10.04]);
+logger.log(logger.COLOR.RED + "You can also invoke colors with \"logger.COLOR.{color}\"");
+logger.log(logger.COLOR.RED + "Hi &b-mhi &revtest");
+
+let startTime = logger.startTime();
+
+setTimeout(() => {
+  let endTime = logger.endTime(startTime);
+  let endTime1 = logger.endTime(startTime, 4);
+  let endTime2 = logger.endTime(startTime, 'm');
+  let endTime3 = logger.endTime(startTime, 'h', 1);
+
+  console.log("Execution time: " + endTime + " milliseconds");
+  console.log("Execution time: " + endTime1 + " milliseconds");
+  console.log("Execution time: " + endTime2 + " minutes");
+  console.log("Execution time: " + endTime3 + " hours");
+}, 150)
