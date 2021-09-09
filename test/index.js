@@ -26,7 +26,7 @@ const logger = require('../index')({
   }
 });
 
-logger.clearConsole();
+//logger.clearConsole();
 logger.log('&cHi! this is a &m%text%', 'database', { text: 'test!' });
 logger.warn('Hi! this is a warn! :(', 'website');
 logger.log('&rW&go&yw&res, &mi &cl&ro&wv&ce &res&bliNode.js!');
@@ -48,4 +48,19 @@ setTimeout(() => {
   console.log("Execution time: " + endTime1 + " milliseconds");
   console.log("Execution time: " + endTime2 + " minutes");
   console.log("Execution time: " + endTime3 + " hours");
-}, 150)
+}, 150);
+
+const logger2 = require('../index')({
+  zipFolders: false, 
+  levels: {
+    log: {
+      writeToLogFile: false
+    }, 
+    warn: {
+      writeToLogFile: false
+    }, 
+    error: {
+      writeToLogFile: false
+    }
+  }
+});
