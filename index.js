@@ -54,8 +54,6 @@ module.exports = function (options) {
 
   // Verifies the correctness of "zipFolder" and eventually starts the scheduler
   if (settings.zipFolders == true) {
-    console.log("Test");
-
     // When the logger object is initialized, a scan of the folders is started immediately
     // to check if there are any past months, in which case they will be zipped to save space on the disk.
     require('./lib/modules/zipper').folderZipper(settings.logDirectory, settings.months);
