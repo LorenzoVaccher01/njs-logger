@@ -3,8 +3,8 @@
 * Author URI: https://lorenzovaccher.com
 * Copyright (c) 2021 Lorenzo Vaccher
 */
-
-const logger = require('../index')({
+import log from '../index.js';
+const settings = {
   levels: {
     log: {
       format: '&c[&gINFO&c]&res', writeToLogFile: true, sendMail: false
@@ -24,9 +24,12 @@ const logger = require('../index')({
       password: "***********"
     }
   }
-});
+};
 
-//logger.clearConsole();
+const logger = log(settings);
+
+logger.clearConsole();
+logger.debug("test");
 logger.log('&cHi! this is a &m%text%', 'database', { text: 'test!' });
 logger.warn('Hi! this is a warn! :(', 'website');
 logger.log('&rW&go&yw&res, &mi &cl&ro&wv&ce &res&bliNode.js!');
@@ -49,18 +52,3 @@ setTimeout(() => {
   console.log("Execution time: " + endTime2 + " minutes");
   console.log("Execution time: " + endTime3 + " hours");
 }, 150);
-
-const logger2 = require('../index')({
-  zipFolders: false, 
-  levels: {
-    log: {
-      writeToLogFile: false
-    }, 
-    warn: {
-      writeToLogFile: false
-    }, 
-    error: {
-      writeToLogFile: false
-    }
-  }
-});

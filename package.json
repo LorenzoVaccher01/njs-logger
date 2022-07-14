@@ -6,8 +6,9 @@
     "url": "https://lorenzovaccher.com"
   },
   "license": "Apache-2.0",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "main": "index.js",
+  "type": "module",
   "description": "Library focused on the management and manipulation of logs. This allows to save on certain files and to show any errors or other useful information on the console.",
   "homepage": "https://github.com/LorenzoVaccher01/njs-logger.git",
   "engines": {
@@ -40,7 +41,6 @@
     "ejs": "^3.1.6",
     "fs": "0.0.1-security",
     "jsonschema": "^1.4.0",
-    "mysql": "^2.18.1",
     "node-schedule": "^1.3.2",
     "nodemailer": "^6.5.0"
   },

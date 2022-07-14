@@ -4,18 +4,23 @@
 * Copyright (c) 2021 Lorenzo Vaccher
 */
 
-const scheduler = require('./lib/modules/scheduler');
-const validate = require('jsonschema').validate;
+import _validate from 'jsonschema';
+import scheduler from './lib/modules/scheduler.js';
+import zipper from './lib/modules/zipper.js';
+import logger from './lib/logger.js';
+
+const validate = _validate.validate;
 
 /**
  * Default Settings
  */
-const _DEFAULT_SETTINGS = require('./lib/settings.json');
+import _DEFAULT_SETTINGS from './lib/settings.json' assert {type: 'json'};
 
 /**
  * JSON schema used to verify the type of data entered by the user.
  */
-const _SETTINGS_SCHEMA = require('./lib/settingsSchema.json');
+import _SETTINGS_SCHEMA from './lib/settingsSchema.json' assert {type: 'json'};
+
 
 /**
  * The whole settings. This object is obtained through
@@ -31,7 +36,7 @@ let settings;
  * @param {Object} options settings chosen by the user
  * @returns functions used to manage the console
  */
-module.exports = function (options) {
+export default function (options) {
 
   if (!(options instanceof Object) && options != undefined)
     throw new Error('You must pass an object as an argument to the logger!');
@@ -56,13 +61,13 @@ module.exports = function (options) {
   if (settings.zipFolders == true) {
     // When the logger object is initialized, a scan of the folders is started immediately
     // to check if there are any past months, in which case they will be zipped to save space on the disk.
-    require('./lib/modules/zipper').folderZipper(settings.logDirectory, settings.months);
+    zipper(settings.logDirectory, settings.months);
 
     // Starts the scheduler to zip the folders every beginning of the month
-    scheduler.runFolderZipper(settings.logDirectory, settings.months);
+    scheduler(settings.logDirectory, settings.months);
   }
 
-  return require('./lib/logger')(settings);
+  return logger(settings);
 }
 
 /**
